@@ -1,100 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Professional Resume | Raz Goldberg</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-	<link rel="icon" type="image/png" href="face.png">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+	<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+	<title>Auto Send</title>
 </head>
 <body>
-	<header>
-		<h1>רז גולדברג</h1>
-		<ul>
-			יוחנן בן זכאי, 49, ירושלים, ישראל <br>
-			588 6609 55 972+ <br>
-			razgold7@gmail.com <br>
-		</ul>
-	</header>
-	<main>
-		<section>
-			<h2>לימודים</h2>
-			<ul>
-				<li><b>בית הספר התיכון התורני-ניסויי של מכון שלום הרטמן, ירושלים.</b></li>
-				<li> בגרות מלאה:<br>
-מחשבים 5 יח"ל ציון 90.<br>
-מתמטיקה 4 יח"ל ציון 96.<br>
-אנגלית 5 יח"ל ציון 89.<br>
+	<py-script>
+	import smtplib
+	import time
+	import threading
+	from email.mime.multipart import MIMEMultipart
+	from email.mime.text import MIMEText
+	from email.mime.base import MIMEBase
+	from email import encoders
+	import socket
+	host = 'smtp.gmail.com'
+	port = 587
+	sock = socket.create_connection((host, port), timeout=1000)
 
-בנוסף, בכיתה י"ב הצטרפתי למגמת פיזיקה(5 יח"ל) . 
-התעניינתי מאז ומתמיד בפיזיקה ורציתי להעמיק יותר
- את הידע שלי בנושא. במהלך השנה השלמתי עצמאית את החומר של
- כל השנים ובסוף השנה ניגשתי לכל השאלונים עם ציון סופי 85. <br><br>מקצועות מוגברים נוספים: מחשבת ישראל
-  5 יח"ל, תורה שבעל פה 5 יח"ל.<br> <b>סך הכל 38 יחידות לימוד.</b>
-</li>
-			</ul>
-		</section>
-		<section>
-			<h2>התנדבות</h2>
-			<ul>
-				<li>כיום אני נמצא בשנת שירות בפנימייה לנוער בסיכון 'נוה-עמיאל'. נוה עמיאל זו פנימייה לנערים בעלי
-רקע אישי ומשפחתי קשה במיוחד.
-תפקידי כ-ש"ש הוא לעזור לנערים בלימודים, להפיק אירועים ופרויקטים כלל כפריים, להיות איתם
-אחרי שעות הלימודים ולהיות להם כמו אח גדול. אחד התפקידים שלי הוא לצאת לטיול אחד על אחד מדי
-פעם לכמה ימים עם נערים שצריכים להתאוורר מחוץ לפנימייה. בטיולים אנחנו מדברים על הקשיים
-והאתגרים השונים, מנסים למצוא פתרונות ויוצרים קשרים חזקים.</li>
-			</ul>
-		</section>
-		<section>
-			<h2>כישורים</h2>
-			<ul>
-				<li> למדתי עצמאית לתכנת ברמה גבוה בשפות Java ו Python פיתוח אלגוריתמים ופונקציות. </li>
-				<li> שליטה ומספר פרויקטים בבניית אתרים באמצעות Html, JavaScript וCSS שלמדתי גם עצמאית. </li>
-				<li>היכרות עם Computer Network, UI, UX</li>
-				<li>לומד הרבה ומתעניין מאד בנושא ה  Big data וה  Artificial intelligence.</li>
-				<li>משתמש ולומד Linux.</li>
-				<li>מתעסק ב Arduino.	</li>
-				<li>מתעסק ומתמצא היטב בעריכה גרפית ברמה מקצועית - פוטושופ, פרימייר פרו וכו' שלמדתי
-					באמצעות האינטרנט.	</li>
-				<li> ידע בפירוק והרכבת מכשירים ישנים - מתקן פלאפונים ומכשירים אלקטרוניים לחברים
-והמשפחה. בנוסף, הרכבתי לעצמי את המחשב באמצעות חומרות שקניתי.</li>
-				<li>אני קורא הרבה ומתמצא באקטואליה עולמית, בייחוד בעולם הערבי.</li>
-			</ul>
-		</section>
-		<section>
-			<h2>בתחום החברתי</h2>
-			<ul>
-				<li>הדרכתי במשך שנתיים בתנועת הנוער בני עקיבא בסניף בקעה, ולאחר מכן בכיתה י"ב לקחתי תפקיד של
-מוביל סניף ומרכז השכבה הבוגרת (חבריא ב').
-בתיכון ניהלתי פרויקט התנדבות של עבודה עם אסירים בשיקום, ולמעשה ניהלתי פגישות ופעילויות
-שבועיות בין קבוצה של תלמידים בכיתות י"א וי"ב מבית ספרי, וקבוצה של אסירים בהוסטל מסוים
-בירושלים.
-במקביל לכך ניהלתי אריזות וחלוקות מזון לקראת החגים לאנשים וקשישים בעלי אמצעים מוגבלים,
-התרמנו, קנינו, ארזנו וחילקנו בממוצע בכל חג משמעותי סלים לכ-200 משפחות נזקקות.</li>
-			</ul>
-		</section>
-		<section>
-		<h2>שפות</h2>
-			<ul>
-									
-					<ul>
-						<li>עברית - שפת אם.</li>
-					<li>אנגלית - ברמה גבוה מאד, מתקרבת לשפת אם.</li>
-					</ul>
-				
-			</ul>
-		</section>
-		<section>
-		<h2>פסקה על עצמי</h2>
-			<ul>
-					<li> אני אוטודידקט וטכני מאד. יש לי ראש יצירתי ופתוח, ואני אוהב לחשוב על פתרונות יצירתיים לבעיות
-שצצות ביום יום. יש לי קליטה מהירה של דברים ולכן אני מצליח ללמוד ולתפוס מהר נושאים שאני לומד
-ומעמיק בהם. מאז ומתמיד אני זוכר את עצמי מתעסק במחשבים. מתמצא מעולה עם חומרה, מפרק
-ומרכיב מחשבים ומתקן מכשירי אלקטרוניקה
-אני אוהב ללמוד דברים חדשים, לקרוא ספרים, לנגן, לשחק כדורגל ולהתאמן עם חברים בזמני הפנוי. </li>
-			</ul>
-		</section>
-	</main>
+
+	def send_email(subject, body, cond):
+		email_sender = 'razvisaapplication@gmail.com'
+		email_password = 'znxmzgfknnngnpmg'
+		email_receiver = 'razvisaapplication@gmail.com'
+		subject = subject
+		body = body
+		em = MIMEMultipart()
+		em["From"] = email_sender
+		em["To"] = email_receiver
+		em['Subject'] = subject
+		em.attach(MIMEText(body, 'plain'))
+		if cond:
+			pdf_name = 'C:\\Users\\Administrator\\Documents\\WORKOUT.pdf'
+			binary_pdf = open(pdf_name, 'rb')
+			payload = MIMEBase('application', 'octate-stream', Name="Letter.pdf")
+			payload.set_payload((binary_pdf).read())
+			encoders.encode_base64(payload)
+			payload.add_header('Content-Decomposition', 'attachment', filename="Letter.pdf")
+			em.attach(payload)
+		session = smtplib.SMTP('smtp.gmail.com', 587)
+		session.starttls()
+		session.login(email_sender, email_password)
+		text = em.as_string()
+		session.sendmail(email_sender, email_receiver, text)
+		session.quit()
+
+
+	def get_input():
+		global user_input
+		user_input = input("HI\n")
+
+
+	def running():
+		send_email("Running for another month", "", False)
+		time.sleep(2.628e+6)
+		input_thread = threading.Thread(target=get_input)
+		input_thread.start()
+		input_thread.join(timeout=86400)
+		send_email("Waiting one day for response", "", False)
+		if input_thread.is_alive():
+			send_email("Hi", "Failed", True)
+			print("Email has sent")
+		else:
+			print("GOOD")
+			running()
+
+
+	if __name__ == '__main__':
+		running()
+	</py-script>
 </body>
 </html>
